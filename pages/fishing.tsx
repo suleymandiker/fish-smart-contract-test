@@ -158,12 +158,12 @@ const Fishing: NextPage = () => {
           
          
             setCaptainBalance(await getCaptainBalanceOf(myaddress))
-            setFishBalance(((await getFishBalanceOf(myaddress))))
+            setFishBalance(((await getFishBalanceOf(myaddress) / 1000000000000000000).toFixed(2)))
             setYardBalance(await getYardBalanceOf(myaddress))
             const [tokenIds, myFishTotalTon,totalFishClaimable, estEggPerDay] =  await GetMyStakedCaptain(myaddress)
-            setMyCaptainStake(parseInt(tokenIds))
+            setMyCaptainStake(tokenIds)
             setMyFishTotalTon(myFishTotalTon)
-            setTotalClaimable((totalFishClaimable))
+            setTotalClaimable(Number((totalFishClaimable/1000000000000000000).toFixed(2)))
             setEstEggPerDay(estEggPerDay)
             setTotalTon(await getTotalTonOfAllCaptain())
             setFeedActivity(await getFeedActivity(myaddress) )
